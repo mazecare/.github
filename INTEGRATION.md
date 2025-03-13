@@ -22,21 +22,83 @@ This document provides a framework for creating a Frequently Asked Questions (FA
 * **Q: What data formats does the Mazecare API use?**
     * A: JSON
 * **Q: How do I handle authentication with the Mazecare API?**
-    * A: (You fill in with specific steps and code examples if possible.)
-* **Q: How do I subscribe to Mazecare webhooks?**
-    * A: (You fill in with the process and example webhook payload.)
-* **Q: What are the best practices for handling errors and rate limits?**
-    * A: (You fill in with Mazecare's specific error codes and rate limiting policies.)
+    * A: You need to call the graphQL mutation `generateAccessToken` and insert the bearer token in the `Authorization` header
+* **Q: What are the best practices for handling errors?**
+    * A: Errors are handled and sent back to you using the standard GrahpQL format.
 * **Q: Are there any code samples or SDKs available?**
-    * A: (You fill in. Example: Mazecare provides SDKs for [Languages] and code samples in [Languages].)
-* **Q: How do I test my integration with Mazecare?**
-    * A: (You fill in. Example: Mazecare provides a sandbox environment for testing.)
-* **Q: What are the security considerations for integrating with Mazecare?**
-    * A: (You fill in. Example: Data encryption, secure authentication, compliance with relevant regulations, etc.)
+    * A: Not yet but we will build webhook capabilities if there is a need for it for any client.
 
 ## Architectural Diagrams (Conceptual)
 
-Here are some conceptual architectural diagrams. You'll need to replace the generic terms with Mazecare's specific components and data flows.
+```mermaid
+graph LR
+    A[Applications] --> B(API Gateway);
+    B --> C[Backend / Microservices];
+    C --> D[Data];
+
+    subgraph Applications
+        A1[Hospital]
+        A2[Clinic]
+        A3[Lab]
+        A4[Pharmacy]
+        A5[Member / Patient Portal]
+        A6[Insurance]
+        A7[TPA Systems]
+        A1 --> B;
+        A2 --> B;
+        A3 --> B;
+        A4 --> B;
+        A5 --> B;
+        A6 --> B;
+        A7 --> B;
+    end
+
+    subgraph Backend / Microservices
+        C1[Prescription]
+        C2[Inventory]
+        C3[Appointments / Booking]
+        C4[Queues / Ticketing]
+        C5[Medical Records]
+        C6[Insurance Policies]
+        C7[Claims]
+        C8[Insurance Plans]
+        C9[Claim Adjudication Engine]
+        C10[Document / File Management]
+        C11[Messages / Notifications]
+        C12[Contract Management]
+        C13[Billing / Accounting]
+        C14[Authentication / Authorization]
+        C15[Datalake Feed]
+        C1 --> D;
+        C2 --> D;
+        C3 --> D;
+        C4 --> D;
+        C5 --> D;
+        C6 --> D;
+        C7 --> D;
+        C8 --> D;
+        C9 --> D;
+        C10 --> D;
+        C11 --> D;
+        C12 --> D;
+        C13 --> D;
+        C14 --> D;
+        C15 --> D;
+    end
+
+    subgraph Data
+        D1[Any Database]
+        D2[Any File System]
+        D3[Any Datalake]
+    end
+
+    subgraph "Deployable Anywhere"
+        B
+    end
+
+    E[Connect to Third Party Systems]
+    style B fill:#f9f,stroke:#333,stroke-width:2px;
+```
 
 ### 1. API Integration:
 
@@ -50,3 +112,4 @@ sequenceDiagram
     Mazecare API->>Mazecare Database: Query Data
     Mazecare Database-->>Mazecare API: Response Data
     Mazecare API-->>Your System: Response (e.g., Patient Data)
+```
