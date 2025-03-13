@@ -1,28 +1,26 @@
 # Integrating with Mazecare: FAQ and Architectural Diagrams
 
-This document provides a framework for creating a Frequently Asked Questions (FAQ) section and architectural diagrams for integrating with Mazecare (www.mazecare.com). Please replace the placeholder information with specific details from Mazecare's API documentation.
+This document provides a framework for creating a Frequently Asked Questions (FAQ) section and architectural diagrams for integrating with Mazecare (www.mazecare.com). Please replace the placeholder information with specific details from Mazecare's API documentation. You can find our API portal here: https://api-hk-dev.mazecare.com/graphql/
 
 ## General FAQ
 
 * **Q: What are the benefits of integrating with Mazecare?**
-    * A: (You fill in based on Mazecare's value proposition. Examples: Streamlined data exchange, automated workflows, improved patient care, etc.)
+    * A: Streamlined data exchange between all application using Mazecare as a backend
 * **Q: What types of systems can integrate with Mazecare?**
-    * A: (You fill in based on Mazecare's capabilities. Examples: EHR/EMR systems, CRM systems, billing platforms, IoT devices, etc.)
+    * A: EHR/EMR systems, Clinic Management Systems, Hospital Information Systems, patient applications, claim management systems, CRM systems, billing platforms, IoT devices, etc.)
 * **Q: Does Mazecare provide an API for integration?**
-    * A: (You fill in, based on Mazecare's documentation. Example: Yes, Mazecare provides a RESTful API.)
+    * A: Yes, Mazecare provides a complete GraphQL set of APIs. Currenctly more 700 apis (questies, mutations, subscriptions)
 * **Q: What authentication methods does Mazecare use?**
-    * A: (You fill in. Example: OAuth 2.0, API Keys, etc.)
+    * A: OAuth 2.0 and Bearer JWT tokens
 * **Q: Is there a developer portal or documentation available?**
-    * A: (You fill in. Example: Yes, Mazecare provides comprehensive developer documentation at [Link to Documentation].)
+    * A: Not yet, but we are currently building one
 * **Q: Are webhooks supported?**
-    * A: (You fill in. Example: Yes, Mazecare supports webhooks for real-time updates.)
+    * A: Not yet but we will build webhook capabilities if there is a need for it for any client.
 
 ## Technical FAQ
 
 * **Q: What data formats does the Mazecare API use?**
-    * A: (You fill in. Example: JSON, XML, etc.)
-* **Q: What are the key API endpoints for [Specific Functionality]?**
-    * A: (You fill in. Examples: Patient data, appointment scheduling, billing information, etc. Provide example endpoints.)
+    * A: JSON
 * **Q: How do I handle authentication with the Mazecare API?**
     * A: (You fill in with specific steps and code examples if possible.)
 * **Q: How do I subscribe to Mazecare webhooks?**
