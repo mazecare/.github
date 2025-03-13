@@ -54,21 +54,23 @@ graph LR
     end
 
     subgraph Backend / Microservices
-        C1[Prescription]
-        C2[Inventory]
-        C3[Appointments / Booking]
-        C4[Queues / Ticketing]
-        C5[Medical Records]
-        C6[Insurance Policies]
-        C7[Claims]
-        C8[Insurance Plans]
-        C9[Claim Adjudication Engine]
-        C10[Document / File Management]
-        C11[Messages / Notifications]
-        C12[Contract Management]
-        C13[Billing / Accounting]
-        C14[Authentication / Authorization]
-        C15[Datalake Feed]
+        C1[auth-service]
+        C2[product-service]
+        C3[case-service]
+        C4[encounter-service]
+        C5[record-service]
+        C6[entity-service]
+        C7[file-service]
+        C8[booking-service]
+        C9[inventory-service]
+        C10[accounting-service]
+        C11[message-service]
+        C12[payment-service]
+        C13[order-service]
+        C14[contract-service]
+        C15[claim-service]
+        C16[marketing-service]
+        C17[template-service]
         C1 --> D;
         C2 --> D;
         C3 --> D;
@@ -84,6 +86,8 @@ graph LR
         C13 --> D;
         C14 --> D;
         C15 --> D;
+        C16 --> D;
+        C17 --> D;
     end
 
     subgraph Data
