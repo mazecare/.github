@@ -9,13 +9,17 @@ This document provides a framework for creating a Frequently Asked Questions (FA
 * **Q: What types of systems can integrate with Mazecare?**
     * A: EHR/EMR systems, Clinic Management Systems, Hospital Information Systems, patient applications, claim management systems, CRM systems, billing platforms, IoT devices, etc.)
 * **Q: Does Mazecare provide an API for integration?**
-    * A: Yes, Mazecare provides a complete GraphQL set of APIs. Currenctly more 700 apis (questies, mutations, subscriptions)
+    * A: Yes, Mazecare provides a complete GraphQL set of APIs. Currenctly more 700 apis (queries, mutations, subscriptions)
 * **Q: What authentication methods does Mazecare use?**
     * A: OAuth 2.0 and Bearer JWT tokens
 * **Q: Is there a developer portal or documentation available?**
     * A: Not yet, but we are currently building one
 * **Q: Are webhooks supported?**
     * A: Not yet but we will build webhook capabilities if there is a need for it for any client.
+* **Q: Can Mazecare be self-hosted?**
+    * A: Yes, the entire Mazecare system can be self-hosted using Docker.
+* **Q: Where can Mazecare be deployed?**
+    * A: Mazecare can be deployed in various cloud environments or on-premises, either in Mazecare's infrastructure or the client's infrastructure.
 
 ## Technical FAQ
 
@@ -110,9 +114,15 @@ graph LR
 sequenceDiagram
     participant Your System
     participant Mazecare API
+    participant Mazecare Auth Service
     participant Mazecare Database
 
-    Your System->>Mazecare API: Request (e.g., Get Patient Data)
+    Your System->>Mazecare Auth Service: Request Access Token (Credentials)
+    Mazecare Auth Service-->>Your System: Access Token (JWT)
+
+    Your System->>Mazecare API: Request (e.g., Get Patient Data) with Authorization Header (Bearer Token)
+    Mazecare API->>Mazecare Auth Service: Validate Token
+    Mazecare Auth Service-->>Mazecare API: Token Validated
     Mazecare API->>Mazecare Database: Query Data
     Mazecare Database-->>Mazecare API: Response Data
     Mazecare API-->>Your System: Response (e.g., Patient Data)
