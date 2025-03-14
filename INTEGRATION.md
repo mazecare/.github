@@ -35,96 +35,52 @@ This document provides a framework for creating a Frequently Asked Questions (FA
 ## Architectural Diagrams (Conceptual)
 
 ```mermaid
-graph TD
-    A[Applications] --> B(API Gateway);
-    B --> C{Backend / Microservices};
-    C --> D[Data];
+graph LR
+    A1[Hospital] & A2[Clinic] & A3[Lab] & A4[Pharmacy] & A5[Patient Portal] & A6[Insurance] & A7[TPA Systems] --> B(API Gateway);
 
-    subgraph Applications
-        direction LR;
-        A1[Hospital] & A2[Clinic] & A3[Lab] & A4[Pharmacy] & A5[Patient Portal] & A6[Insurance] & A7[TPA Systems]
-        style A1 fill:#e0f7fa,stroke:#333,stroke-width:2px;
-        style A2 fill:#e0f7fa,stroke:#333,stroke-width:2px;
-        style A3 fill:#e0f7fa,stroke:#333,stroke-width:2px;
-        style A4 fill:#e0f7fa,stroke:#333,stroke-width:2px;
-        style A5 fill:#e0f7fa,stroke:#333,stroke-width:2px;
-        style A6 fill:#e0f7fa,stroke:#333,stroke-width:2px;
-        style A7 fill:#e0f7fa,stroke:#333,stroke-width:2px;
-        A1 --> B;
-        A2 --> B;
-        A3 --> B;
-        A4 --> B;
-        A5 --> B;
-        A6 --> B;
-        A7 --> B;
-    end
+    B --> C1([auth-service]);
+    B --> C2([product-service]);
+    B --> C3([case-service]);
+    B --> C4([encounter-service]);
+    B --> C5([record-service]);
+    B --> C6([entity-service]);
+    B --> C7([file-service]);
+    B --> C8([booking-service]);
+    B --> C9([inventory-service]);
+    B --> C10([accounting-service]);
+    B --> C11([message-service]);
+    B --> C12([payment-service]);
+    B --> C13([order-service]);
+    B --> C14([contract-service]);
+    B --> C15([claim-service]);
+    B --> C16([marketing-service]);
+    B --> C17([template-service]);
 
-    subgraph Backend / Microservices
-        C1([auth-service])
-        C2([product-service])
-        C3([case-service])
-        C4([encounter-service])
-        C5([record-service])
-        C6([entity-service])
-        C7([file-service])
-        C8([booking-service])
-        C9([inventory-service])
-        C10([accounting-service])
-        C11([message-service])
-        C12([payment-service])
-        C13([order-service])
-        C14([contract-service])
-        C15([claim-service])
-        C16([marketing-service])
-        C17([template-service])
-        style C1 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C2 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C3 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C4 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C5 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C6 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C7 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C8 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C9 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C10 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C11 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C12 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C13 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C14 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C15 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C16 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        style C17 fill:#f0fff0,stroke:#333,stroke-width:2px;
-        C1 --> D;
-        C2 --> D;
-        C3 --> D;
-        C4 --> D;
-        C5 --> D;
-        C6 --> D;
-        C7 --> D;
-        C8 --> D;
-        C9 --> D;
-        C10 --> D;
-        C11 --> D;
-        C12 --> D;
-        C13 --> D;
-        C14 --> D;
-        C15 --> D;
-        C16 --> D;
-        C17 --> D;
-    end
+    C1 --> D[Data];
+    C2 --> D[Data];
+    C3 --> D[Data];
+    C4 --> D[Data];
+    C5 --> D[Data];
+    C6 --> D[Data];
+    C7 --> D[Data];
+    C8 --> D[Data];
+    C9 --> D[Data];
+    C10 --> D[Data];
+    C11 --> D[Data];
+    C12 --> D[Data];
+    C13 --> D[Data];
+    C14 --> D[Data];
+    C15 --> D[Data];
+    C16 --> D[Data];
+    C17 --> D[Data];
 
-    subgraph Data
-        D1((Database))
-        D2[File System]
-        D3[Datalake]
-        style D1 fill:#fffacd,stroke:#333,stroke-width:2px;
-        style D2 fill:#fffacd,stroke:#333,stroke-width:2px;
-        style D3 fill:#fffacd,stroke:#333,stroke-width:2px;
-    end
+    D --> D1((Database));
+    D --> D2[File System];
+    D --> D3[Datalake];
 
-    subgraph "Deployable Anywhere"
-        B
-    end
+    style D1 fill:#fffacd,stroke:#333,stroke-width:2px;
+    style D2 fill:#fffacd,stroke:#333,stroke-width:2px;
+    style D3 fill:#fffacd,stroke:#333,stroke-width:2px;
 
     E[Connect to Third Party Systems]
     style B fill:#f9f,stroke:#333,stroke-width:2px;
