@@ -76,9 +76,16 @@ graph LR
     C16 --> D[Data];
     C17 --> D[Data];
 
-    D --> D1((Database));
-    D --> D2[File System];
-    D --> D3[Datalake];
+    D --> TP[Third Party Providers];
+    D --> IS[Client's Internal Systems];
+
+    D1((Database));
+    D2[File System];
+    D3[Datalake];
+
+    D --> D1;
+    D --> D2;
+    D --> D3;
 
     style D1 fill:#fffacd,stroke:#333,stroke-width:2px;
     style D2 fill:#fffacd,stroke:#333,stroke-width:2px;
