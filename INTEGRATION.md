@@ -10,6 +10,8 @@ This document provides a framework for creating a Frequently Asked Questions (FA
     * A: EHR/EMR systems, Clinic Management Systems, Hospital Information Systems, patient applications, claim management systems, CRM systems, billing platforms, IoT devices, etc.)
 * **Q: Does Mazecare provide an API for integration?**
     * A: Yes, Mazecare provides a complete GraphQL set of APIs. Currenctly more 700 apis (queries, mutations, subscriptions)
+* **Q: Can Mazecare integrate with 3rd party provideers?**
+    * A: Yes, Mazecare already integrates with quite a few 3rd party providers (e.g. Google Calendar, Google Meet...). We can integrate with your own services and other 3rd party provider of your choice
 * **Q: What authentication methods does Mazecare use?**
     * A: OAuth 2.0 and Bearer JWT tokens
 * **Q: Is there a developer portal or documentation available?**
@@ -81,9 +83,6 @@ graph LR
     style D1 fill:#fffacd,stroke:#333,stroke-width:2px;
     style D2 fill:#fffacd,stroke:#333,stroke-width:2px;
     style D3 fill:#fffacd,stroke:#333,stroke-width:2px;
-
-    E[Connect to Third Party Systems]
-    style B fill:#f9f,stroke:#333,stroke-width:2px;
 ```
 
 ### 1. API Integration:
