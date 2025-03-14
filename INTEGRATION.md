@@ -35,19 +35,21 @@ This document provides a framework for creating a Frequently Asked Questions (FA
 ## Architectural Diagrams (Conceptual)
 
 ```mermaid
-graph LR
+graph TD
     A[Applications] --> B(API Gateway);
-    B --> C[Backend / Microservices];
+    B --> C{Backend / Microservices};
     C --> D[Data];
 
     subgraph Applications
-        A1[Hospital]
-        A2[Clinic]
-        A3[Lab]
-        A4[Pharmacy]
-        A5[Member / Patient Portal]
-        A6[Insurance]
-        A7[TPA Systems]
+        direction LR;
+        A1[Hospital] & A2[Clinic] & A3[Lab] & A4[Pharmacy] & A5[Patient Portal] & A6[Insurance] & A7[TPA Systems]
+        style A1 fill:#e0f7fa,stroke:#333,stroke-width:2px;
+        style A2 fill:#e0f7fa,stroke:#333,stroke-width:2px;
+        style A3 fill:#e0f7fa,stroke:#333,stroke-width:2px;
+        style A4 fill:#e0f7fa,stroke:#333,stroke-width:2px;
+        style A5 fill:#e0f7fa,stroke:#333,stroke-width:2px;
+        style A6 fill:#e0f7fa,stroke:#333,stroke-width:2px;
+        style A7 fill:#e0f7fa,stroke:#333,stroke-width:2px;
         A1 --> B;
         A2 --> B;
         A3 --> B;
@@ -58,23 +60,40 @@ graph LR
     end
 
     subgraph Backend / Microservices
-        C1[auth-service]
-        C2[product-service]
-        C3[case-service]
-        C4[encounter-service]
-        C5[record-service]
-        C6[entity-service]
-        C7[file-service]
-        C8[booking-service]
-        C9[inventory-service]
-        C10[accounting-service]
-        C11[message-service]
-        C12[payment-service]
-        C13[order-service]
-        C14[contract-service]
-        C15[claim-service]
-        C16[marketing-service]
-        C17[template-service]
+        C1([auth-service])
+        C2([product-service])
+        C3([case-service])
+        C4([encounter-service])
+        C5([record-service])
+        C6([entity-service])
+        C7([file-service])
+        C8([booking-service])
+        C9([inventory-service])
+        C10([accounting-service])
+        C11([message-service])
+        C12([payment-service])
+        C13([order-service])
+        C14([contract-service])
+        C15([claim-service])
+        C16([marketing-service])
+        C17([template-service])
+        style C1 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C2 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C3 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C4 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C5 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C6 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C7 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C8 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C9 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C10 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C11 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C12 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C13 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C14 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C15 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C16 fill:#f0fff0,stroke:#333,stroke-width:2px;
+        style C17 fill:#f0fff0,stroke:#333,stroke-width:2px;
         C1 --> D;
         C2 --> D;
         C3 --> D;
@@ -95,9 +114,12 @@ graph LR
     end
 
     subgraph Data
-        D1[Any Database]
-        D2[Any File System]
-        D3[Any Datalake]
+        D1((Database))
+        D2[File System]
+        D3[Datalake]
+        style D1 fill:#fffacd,stroke:#333,stroke-width:2px;
+        style D2 fill:#fffacd,stroke:#333,stroke-width:2px;
+        style D3 fill:#fffacd,stroke:#333,stroke-width:2px;
     end
 
     subgraph "Deployable Anywhere"
